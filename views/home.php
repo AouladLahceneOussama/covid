@@ -30,7 +30,6 @@
 </head>
 
 <body>
-
     <?php require_once 'partials/menu.php'; ?>
 
     <?php require_once 'sections/hero.php'; ?>
