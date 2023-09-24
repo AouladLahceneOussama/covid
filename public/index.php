@@ -1,6 +1,7 @@
 <?php
 
 require_once '../vendor/autoload.php';
+require_once '../config/env.php';
 
 $request = $_SERVER['REQUEST_URI'];
 $views = '../views/';

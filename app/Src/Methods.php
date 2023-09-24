@@ -10,7 +10,7 @@ class Methods
 
     public function __construct()
     {
-        $this->connection = (new Connection("localhost", "27017", "covid19", "", ""))->connection();
+        $this->connection = (new Connection())->connection();
     }
 
     public function getCityByRegion($regionID)

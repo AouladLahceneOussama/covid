@@ -13,7 +13,9 @@ git clone ...
 cd covid
 composer install
 npm install
+cp .env.example .env
 ```
+> Add you database connection information to the env file
 > Serve it as you want
 
 # Usage
