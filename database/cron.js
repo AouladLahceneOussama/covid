@@ -3,7 +3,7 @@ let shell = require('shelljs');
 
 let supportedTypes = ['data', 'regions', 'villes'];
 
-cron.schedule("5 * * * * *", () => {
+cron.schedule("* * * * * *", () => {
     console.log("Running cron job");
     for (let type of supportedTypes) {
         if (shell.exec(`node index.js ${type}`).code !== 0) {

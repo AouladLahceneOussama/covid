@@ -1,21 +1,16 @@
 const request = require('request');
 const { MongoClient } = require("mongodb");
+const config = require('./config');
 
 const type = process.argv[2];
 const MyDateString = getCurrentDate();
-const baseUrl = "https://raw.githubusercontent.com/AyatANSSAIEN/Covid19/main/";
-const dbName = "covid19";
 
-const client = new MongoClient("mongodb://127.0.0.1:27017");
+const baseUrl = config.DATA_URL
+const dbName = config.DATABASE_NAME;
+const client = new MongoClient("mongodb://" + config.DATABASE_HOST + ":" + config.DATABASE_PORT);
 
-request({
-    url: baseUrl + type + ".json",
-    json: true,
-}, (err, response, body) => {
-    if (err) {
-        console.log("error data not fetched !");
-        return;
-    }
+request({url: baseUrl + type + ".json", json: true}, (err, response, body) => {
+    if (err) return;
     if (response.statusCode == 200) updateOrCreate(body, type).catch(console.dir);
 });
 
