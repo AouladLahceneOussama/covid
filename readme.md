@@ -14,16 +14,17 @@ cd covid
 composer install
 cp .env.example .env
 ```
-> Add you database connection information to the env file
+> Add you database connection information to the env file  
 > Serve it as you want
 
 # Usage
-To create and load data use these commands:
+To create database and collections use the following command
 ```
-// create the database and needed collections
 php app/Commands/command.php db:create
+```
 
-// load data from the data files
+To load data from the data files use the following command
+```
 php app/Commands/command.php db:load
 ```
 
