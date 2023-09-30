@@ -6,6 +6,12 @@ use MongoDB\Client;
 
 class Connection
 {
+    private $db_host;
+    private $db_port;
+    private $db_name;
+    private $db_user;
+    private $db_pass;
+    
     public function __construct() {
         $this->db_host = $_ENV['DATABASE_HOST'];
         $this->db_port = $_ENV['DATABASE_PORT'];
