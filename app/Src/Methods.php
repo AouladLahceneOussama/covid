@@ -50,13 +50,13 @@ class Methods
                     <tbody class="text-gray-700">
             ';
 
-            foreach ($region->villes as $villeID) {
-                $citys = $this->connection->villes;
-                $cursor2 = $citys->find(['ville_id' => $villeID]);
+            foreach ($region->cities as $cityID) {
+                $cities = $this->connection->cities;
+                $cursor2 = $cities->find(['city_id' => $cityID]);
                 foreach ($cursor2 as  $city) {
                     $output .= '
                     <tr class="border-b-2 border-gray-200 hover:bg-gray-100 transition duration-300 ease-in-out" >
-                        <td class="text-left py-3 px-4">' . $city->ville_name . '</td>
+                        <td class="text-left py-3 px-4">' . $city->city_name . '</td>
                         <td class="text-left py-3 px-4 text-center">' . $city['data'][count(($city['data'])) - 1]['new_cases'] . '</td>
                         <td class="text-left text-red-300 py-3 px-4 text-center">' . $city['data'][count(($city['data'])) - 1]['death'] . '</td>
                     </tr> ';
@@ -127,13 +127,13 @@ class Methods
                             </thead>
                             <tbody class="text-gray-700">';
 
-            foreach ($region->villes as $villeID) {
-                $citys = $this->connection->villes;
-                $cursor2 = $citys->find(['ville_id' => $villeID]);
+            foreach ($region->cities as $cityID) {
+                $cities = $this->connection->cities;
+                $cursor2 = $cities->find(['city_id' => $cityID]);
                 foreach ($cursor2 as  $city) {
                     $output .= '
                                 <tr class="border-b-2 border-gray-200 hover:bg-gray-100 transition duration-300 ease-in-out">
-                                    <td class="text-left py-3 px-4">' . $city->ville_name . '</td>
+                                    <td class="text-left py-3 px-4">' . $city->city_name . '</td>
                                     <td class="text-left py-3 px-4 text-center">' . $city['data'][count(($city['data'])) - 1]['new_cases'] . '</td>
                                     <td class="text-left text-red-300 py-3 px-4 text-center">' . $city['data'][count(($city['data'])) - 1]['death'] . '</td>
                                 </tr>
