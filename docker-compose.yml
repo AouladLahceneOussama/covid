@@ -1,0 +1,36 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www/covid
+      - ./covid.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - local
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - local
+    volumes:
+      - ./mongo:/data/db
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/covid
+    depends_on:
+      - mongo
+    entrypoint: ["sh", "/var/www/covid/db-entrypoint.sh"]
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge

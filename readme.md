@@ -31,4 +31,8 @@ php app/Commands/command.php db:load
 Check the files from here [data files](https://github.com/AouladLahceneOussama/covid-data)
 
 # Docker
-Coming soon
+To run the application using docker use the following command
+```
+docker-compose up --build
+```
+Then you can access the application from http://localhost:8081
